@@ -12,7 +12,7 @@
     <!-- song-list组件 -->
       <MScroll class="list" ref="list" :data="songs" :listenScroll="true" @scroll="scrollChange" :probeType='3'>
         <div class="song-list-wrapper">
-          <song-list :songs="songs" @select='currentSong' ref='songlist'></song-list>
+          <song-list :songs="songs" @select='currentSong'></song-list>
         </div>
       </MScroll>
   </div>

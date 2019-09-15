@@ -7,7 +7,7 @@
         @click="slectSong(song,idx)"
       >
        <div class='content' ref='content'>
-         <div class='index'>{{ idx + 1 }}</div>
+         <div class='index'>{{getIndex(idx)}}</div>
          <div>
            <h2 class='name'>{{ song.songname }}</h2>
            <p class='desc'>{{ song.singer }} ~ {{ song.albumname }} </p> 
@@ -32,6 +32,10 @@ export default {
   methods: {
     slectSong(song,idx){
       this.$emit('select',song,idx)
+    },
+    getIndex(idx){
+      let index = idx+1
+      return index<10 ? index = "0"+index : index
     }
   },
 }
