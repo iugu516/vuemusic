@@ -20,7 +20,7 @@ export default {
   computed: {
     ...mapGetters(['singerInfo']),
     bgImage() {
-      return  `background-image:url(${this.singerInfo.imgurl})` 
+      return  `background-image:url(${this.singerInfo.imgurl})`
     }
   },
   components: {
@@ -29,7 +29,7 @@ export default {
   methods: {
     // 获取 歌曲列表 的方法
     _getSongList() {
-      // 判断当前 Fmid 是否存在 
+      // 判断当前 Fmid 是否存在
       if(!this.singerInfo.dissid){
         this.$router.push('/recommend')
         return;
@@ -38,26 +38,26 @@ export default {
         this.songsList = this.filterSong(res.cdlist[0].songlist)
       })
     },
-    // 处理 歌曲数据 Song 类中的 url 
+    // 处理 歌曲数据 Song 类中的 url
     filterSong(list) {
       let ret = [];
-      let smid = []; // 存放songmid 
-      let purl = []; // 存放 purl 
+      let smid = []; // 存放songmid
+      let purl = []; // 存放 purl
       // 1. 获取 songmid -> Arry
       list.forEach(item => {
         smid.push(item.mid);
       })
-      // 根据 songmid 请求 purl 
+      // 根据 songmid 请求 purl
       this._getPlayKey(smid).then( urlinfo =>{
         // 遍历 urlinfo
         urlinfo.forEach( item => {
           purl.push(item.purl)
         })
-        // 在根据 purl 去获取musicData, 拼接播放源 url,把url和musicData合并成一个对象 
+        // 在根据 purl 去获取musicData, 拼接播放源 url,把url和musicData合并成一个对象
         list.forEach((item, index) => {
-          if(purl[index]) { 
-            let dataUrl = 
-               `http://223.111.104.155/amobile.music.tc.qq.com/${
+          if(purl[index]) {
+            let dataUrl =
+               `http://58.221.77.146/amobile.music.tc.qq.com/${
                 purl[index] }`
             // console.log(dataUrl)
             // 在 Song 类中结构对象返回 我们需要的 Song 实例
@@ -83,7 +83,7 @@ export default {
         }else {
           return Promise.reject('err')
         }
-      }) 
+      })
     }
   },
   created(){

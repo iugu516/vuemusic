@@ -76,12 +76,12 @@ export default {
       });
     },
     selectSinger(sInfo){
-      // 通过提交mutation type setSingerInfo 来赋值 
+      // 通过提交mutation type setSingerInfo 来赋值
       this.setSingerInfo(sInfo);
 
       // sInfo -> 歌手信息 Fmid | sname | headImg
       this.$router.push({
-        path: `/recommend/${ sInfo.dissid }` 
+        path: `/recommend/${ sInfo.dissid }`
       })
     },
     handlePlayList(playList){

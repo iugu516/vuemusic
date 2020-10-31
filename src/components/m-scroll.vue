@@ -45,7 +45,7 @@ export default {
         // 滚动动画减速度
         deceleration: 0.003
       });
-      // 判断当前的 listenScroll, 如果有就派发一个scroll事件出去  
+      // 判断当前的 listenScroll, 如果有就派发一个scroll事件出去
       if(this.listenScroll){
         // 注册原生scroll事件
         this.scroll.on('scroll', (prop)=>{
@@ -65,15 +65,15 @@ export default {
     refresh() { // 刷新
       this.scroll && this.scroll.refresh();
     },
-    scrollToElement(elem, ms) { 
+    scrollToElement(elem, ms) {
       // elem - 滚动到的元素  ms - 滚动时间
       this.scroll && this.scroll.scrollToElement(elem, ms)
     }
   },
   mounted(){
-    setTimeout(()=>{ // 延时加载，确保DOM加载完成 
+    setTimeout(()=>{ // 延时加载，确保DOM加载完成
       this._initScroll()
-    }, 20)  
+    }, 20)
   },
   watch: { // 监听 data , data 数据变化，重新计算高度
     data() {
